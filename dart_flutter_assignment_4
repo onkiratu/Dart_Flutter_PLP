@@ -1,0 +1,68 @@
+import 'dart:convert';
+
+// Interface
+abstract class Vehicle {
+  void start();
+}
+
+// Base Class
+class Car implements Vehicle {
+  String model;
+
+  Car(this.model);
+
+  @override
+  void start() {
+    print("Car $model starting...");
+  }
+
+  void drive() {
+    print("Car $model is driving.");
+  }
+}
+
+// Derived Class that overrides a method
+class ElectricCar extends Car {
+  int batteryLevel;
+
+  ElectricCar(String model, this.batteryLevel) : super(model);
+
+  @override
+  void start() {
+    print("Electric Car $model with battery $batteryLevel% starting...");
+  }
+
+  @override
+  void drive() {
+    print("Electric Car $model with battery $batteryLevel% is driving.");
+  }
+}
+
+// Function to initialize a car from simulated file data
+ElectricCar initializeCar() {
+  // Simulated file data as a JSON string
+  String jsonData = '{"model": "Tesla Model 3", "batteryLevel": 85}';
+  Map<String, dynamic> data = jsonDecode(jsonData);
+
+  return ElectricCar(data['model'], data['batteryLevel']);
+}
+
+// Function to demonstrate looping over a list of cars
+void demoLoop(List<Car> cars) {
+  for (Car car in cars) {
+    car.start();
+    car.drive();
+  }
+}
+
+// Main function to run the program
+void main() {
+  // Initialize car from simulated file data
+  ElectricCar myCar = initializeCar();
+  
+  // Create a list of cars and add the initialized car
+  List<Car> cars = [myCar, new Car("Toyota Corolla"), new ElectricCar("Nissan Leaf", 70)];
+  
+  // Demonstrate looping over the cars
+  demoLoop(cars);
+}

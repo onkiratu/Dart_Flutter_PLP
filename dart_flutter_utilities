@@ -1,0 +1,89 @@
+void main() {
+  // Task 2: Print numbers using a for loop
+  printNumbersForLoop();
+
+  // Task 3: Use switch to check string values
+  checkStringValue("hello");
+  checkStringValue("goodbye");
+
+  // Task 4: Print numbers using a while loop
+  printNumbersWhileLoop();
+
+  // Task 5: Check if a number is even or odd
+  checkEvenOdd(5);
+  checkEvenOdd(10);
+
+  // Task 6: Find the largest number in a list
+  findLargest([10, 20, 5, 3, 100, 50]);
+
+  // Task 7: Try-Catch block
+  divideNumbers(10, 0);
+
+  // Task 1: Sum of two numbers
+  print("Sum of 5 and 3 is ${sum(5, 3)}");
+}
+
+// Task 1: Function to Sum Two Numbers
+int sum(int a, int b) {
+  return a + b;
+}
+
+// Task 2: Print Numbers from 1 to 10 Using a For Loop
+void printNumbersForLoop() {
+  for (int i = 1; i <= 10; i++) {
+    print(i);
+  }
+}
+
+// Task 3: Switch Statement for Different String Values
+void checkStringValue(String value) {
+  switch (value) {
+    case "hello":
+      print("Hello there!");
+      break;
+    case "goodbye":
+      print("Goodbye now!");
+      break;
+    default:
+      print("Unknown value");
+  }
+}
+
+// Task 4: While Loop to Print Numbers from 20 to 10
+void printNumbersWhileLoop() {
+  int i = 20;
+  while (i >= 10) {
+    print(i);
+    i--;
+  }
+}
+
+// Task 5: If-Else Statement to Check Even or Odd
+void checkEvenOdd(int number) {
+  if (number % 2 == 0) {
+    print("$number is even.");
+  } else {
+    print("$number is odd.");
+  }
+}
+
+// Task 6: Find the Largest Number in a List
+void findLargest(List<int> numbers) {
+  int largest = numbers[0];
+  for (int number in numbers) {
+    if (number > largest) {
+      largest = number;
+    }
+  }
+  print("Largest number is $largest");
+}
+
+// Task 7: Try-Catch Block to Handle Exception
+void divideNumbers(int a, int b) {
+  try {
+    int result = a ~/ b;
+    print("The result is $result");
+  } catch (e) {
+    print("Error: ${e.toString()}");
+  }
+}
